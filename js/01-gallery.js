@@ -37,10 +37,11 @@ function onGalleryItemClick(ev) {
   const instance = basicLightbox.create(modalMarkup);
 
   instance.show();
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      instance.close();
-    }
-  });
+  onClose: (instance) => {
+    instance.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        instance.close();
+      }
+    });
+  };
 }
